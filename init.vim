@@ -1,16 +1,16 @@
-" Sidebar adjustment :D
+" Sidebar adjustment
 set cursorline
-set number " Number line on side
-set relativenumber " Line distance from current position
+set number
+set relativenumber
 
-" Color/Search Assistance
+" Color/Search
 syntax on
-set cc=120
+set cc=80
 set hlsearch
 set incsearch
 set ignorecase
 
-" File Formatting Assistance
+" File Formatting
 set nocompatible
 filetype on
 filetype plugin on
@@ -22,4 +22,4 @@ set autoindent
 set clipboard=unnamedplus
 
 " Spelling
-set spell 
+set spell
