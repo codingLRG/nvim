@@ -33,5 +33,8 @@ require("lazy").setup({
    require 'plugins.statusline',
    require 'plugins.tab-assist',
    require 'plugins.startup-page',
+   require 'plugins.git-signs',
+   require 'plugins.autopair',
+   require 'plugins.fugitive',
 
 })
