@@ -36,5 +36,6 @@ require("lazy").setup({
    require 'plugins.git-signs',
    require 'plugins.autopair',
    require 'plugins.fugitive',
+   require 'plugins.telescope',
 
 })
