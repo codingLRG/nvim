@@ -17,12 +17,12 @@ vim.keymap.set('v', 'p', '"-dP', opts)
 vim.keymap.set('n', '<leader>%', '<C-w>v', opts) -- split window vertically
 vim.keymap.set('n', '<leader>"', '<C-w>s', opts) -- split window horizontally
 --- Resizing
-vim.keymap.set('n', '<C-A-k>', ':resize -2<CR>', opts)
+vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+vim.keymap.set('n', '<Left>', ':vertical resize -5<CR>', opts)
+vim.keymap.set('n', '<Right>', ':vertical resize +5<CR>', opts)
 vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>xs', ':close<CR>', opts) -- close current split window
+vim.keymap.set('n', '<leader>sx', ':close<CR>', opts) -- close current split window
 --- Navigation
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', opts)
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts)
