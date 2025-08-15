@@ -39,4 +39,5 @@ require("lazy").setup({
    require 'plugins.telescope',
    require 'plugins.hardtime',
    require 'plugins.notify',
+   require 'plugins.vim-flog',
 })
