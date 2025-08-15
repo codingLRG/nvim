@@ -37,5 +37,6 @@ require("lazy").setup({
    require 'plugins.autopair',
    require 'plugins.fugitive',
    require 'plugins.telescope',
-
+   require 'plugins.hardtime',
+   require 'plugins.notify',
 })
