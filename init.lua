@@ -40,4 +40,8 @@ require("lazy").setup({
    require 'plugins.hardtime',
    require 'plugins.notify',
    require 'plugins.vim-flog',
+   require 'plugins.undotree',
+   require 'plugins.nvim-ufo',
+   require 'plugins.nvim-lspconfig',
+   require 'plugins.trouble',
 })
