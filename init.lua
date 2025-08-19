@@ -46,4 +46,5 @@ require("lazy").setup({
    require 'plugins.trouble',
    require 'plugins.mason',
    require 'plugins.mason-lspconfig',
+   require 'plugins.blink',
 })
