@@ -44,4 +44,6 @@ require("lazy").setup({
    require 'plugins.nvim-ufo',
    require 'plugins.nvim-lspconfig',
    require 'plugins.trouble',
+   require 'plugins.mason',
+   require 'plugins.mason-lspconfig',
 })
