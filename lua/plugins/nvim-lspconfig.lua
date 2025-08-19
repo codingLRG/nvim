@@ -1,12 +1,28 @@
 return{
    "neovim/nvim-lspconfig",
    config = function()
-      require('lspconfig').lua_ls.setup{}
-      --      require('lspconfig').gdscript.setup(capabilities)
       vim.diagnostic.config({
-          virtual_text = false,
-          signs = true,
-          float = { border = "single" },
-       })
-    end,
- }
+         virtual_lines = {
+            current_line = true,
+            virtual_text = true
+         },
+         signs = {
+            numhl = {
+               [vim.diagnostic.severity.ERROR] = 'MiniTrailspace'
+            },
+            linehl = {
+               [vim.diagnostic.severity.ERROR] = "RedrawDebugRecompose",
+               [vim.diagnostic.severity.WARN]  = "DiagnosticWarnLn",
+               [vim.diagnostic.severity.INFO]  = "DiagnosticInfoLn",
+               [vim.diagnostic.severity.HINT]  = "DiagnosticHintLn",
+            },
+            text = {
+               [vim.diagnostic.severity.ERROR] = "󱓈",
+               [vim.diagnostic.severity.WARN] = "",
+               [vim.diagnostic.severity.INFO] = "",
+               [vim.diagnostic.severity.HINT] = "󰅏"
+            },
+         },
+      })
+   end,
+}

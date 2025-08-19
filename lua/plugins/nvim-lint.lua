@@ -7,7 +7,7 @@ return{
    config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
-         lua = {"ast-grep"},
+         lua = {"lua_ls"},
          gd = {"gdtoolkit"},
       }
    end
