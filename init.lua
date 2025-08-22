@@ -52,4 +52,5 @@ require("lazy").setup({
 	require("plugins.mason-lspconfig"),
 	require("plugins.blink"),
 	require("plugins.conform"),
+	require("plugins.nvim-dap"),
 })
