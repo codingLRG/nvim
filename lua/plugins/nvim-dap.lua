@@ -24,10 +24,6 @@ return {
 				project = "${workspaceFolder}",
 			},
 		}
-		local projectfile = vim.fn.getcwd() .. "/project.godot"
-		if projectfile then
-			vim.fn.serverstart("./godothost")
-		end
 
 		-- KEYBINDINGS
 		require("dapui").setup()
