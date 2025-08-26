@@ -49,6 +49,7 @@ require("lazy").setup({
    require("plugins.blink"),
    require("plugins.conform"),
    require("plugins.nvim-dap"),
+   require("plugins.gdscript-extended"),
 })
 
 require("postops.godotfunct")

@@ -31,5 +31,8 @@ require 'lspconfig'.gdscript.setup {
 
 -- Server autolistening
 if vim.fn.filereadable(vim.fn.getcwd() .. "/project.godot") == 1 then
-   vim.fn.serverstart("localhost:8000")
+   if vim.loop.os_uname().sysname == 'Windows_NT' then
+      vim.fn.serverstart("localhost:8000")
+      --      echom "Loaded Windows Godot Server Listener"
+   end
 end
