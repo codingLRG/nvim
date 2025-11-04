@@ -12,7 +12,7 @@ vim.o.expandtab = true
 
 -- Interaction
 vim.o.clipboard = 'unnamedplus'
-vim.o.mouse = 'a'
+vim.o.mouse = 'a' -- mouse moves cursor on click
 vim.o.ph = 5
 vim.o.ignorecase = true
 vim.o.smartcase = true

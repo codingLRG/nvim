@@ -36,13 +36,18 @@ return {
             },
          },
       })
-      local lspconfig = require('lspconfig')
+      -- DEPRICATED
+      --
+      -- local lspconfig = require('lspconfig')
+      -- for server, config in pairs(opts.servers) do
+      --    config.capabilities = require('blink.cmp').get_lsp_capabilities()
+      --    lspconfig[server].setup(config)
+      -- end
+      local new_lspconfig = vim.lsp
       for server, config in pairs(opts.servers) do
          config.capabilities = require('blink.cmp').get_lsp_capabilities()
-         lspconfig[server].setup(config)
+         new_lspconfig.config[server] = config
+         new_lspconfig.enable(server)
       end
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require("lspconfig").lua_ls.setup { capabilities = capabilities }
    end,
 }

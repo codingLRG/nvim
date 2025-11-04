@@ -23,11 +23,13 @@ local lsp_flags = {
    debounce_text_changes = 150,
 }
 
-require 'lspconfig'.gdscript.setup {
+vim.lsp.config['gdscript'] = {
    on_attach = on_attach,
    flags = lsp_flags,
    filetypes = { "gd", "gdscript", "gdscript3" },
 }
+
+vim.lsp.enable('gdscript')
 
 -- Server autolistening
 if vim.fn.filereadable(vim.fn.getcwd() .. "/project.godot") == 1 then
