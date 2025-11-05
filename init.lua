@@ -45,5 +45,3 @@ require("lazy").setup({
    require("plugins.nvim-dap"),
    require("plugins.gdscript-extended"),
 })
-
-require("postops.godotfunct")

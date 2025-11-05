@@ -5,10 +5,16 @@ return {
    },
    opts = {
       servers = {
-         lua_ls = {},
-         --         gdtoolkit = {
-         --            cmd = { "ncat", "localhost", "6005" },
-         --         },
+         lua_ls = {
+            cmd = { 'lua-language-server' },
+            filetype = { 'lua' },
+         },
+
+         gdtoolkit = {
+            cmd = { 'ncat', 'localhost', os.getenv 'GDScript_Port' or '6005' },
+            filetype = { 'gd', 'gdscript', '' },
+            root_makers = { { 'project.godot' }, '.git' },
+         },
       }
    },
    config = function(_, opts)
@@ -48,6 +54,14 @@ return {
          config.capabilities = require('blink.cmp').get_lsp_capabilities()
          new_lspconfig.config[server] = config
          new_lspconfig.enable(server)
+      end
+      -- Connecting servers for lsp
+      if vim.fn.filereadable(vim.fn.getcwd() .. '/project.godot') == 1 then
+         local addr = './godot.pipe'
+         if vim.fn.has 'win32' == 1 then
+            addr = "localhost:6004"
+         end
+         vim.fn.serverstart(addr)
       end
    end,
 }

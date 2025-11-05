@@ -1,40 +1,26 @@
--- DAP configuration
-local dap = require('dap')
-dap.adapters.godot = {
-   type = "server",
-   host = '127.0.0.1',
-   port = 6006,
-}
-
-dap.configurations.gdscript = {
-   {
-      type = "godot",
-      request = "launch",
-      name = "Launch scene",
-      project = "${workspaceFolder}",
-      launch_scene = true,
-   }
-}
-
--- LSP Config for Godot
-
-local lsp_flags = {
-   -- This is the default in Nvim 0.7+
-   debounce_text_changes = 150,
-}
-
-vim.lsp.config['gdscript'] = {
-   on_attach = on_attach,
-   flags = lsp_flags,
-   filetypes = { "gd", "gdscript", "gdscript3" },
-}
-
-vim.lsp.enable('gdscript')
-
--- Server autolistening
-if vim.fn.filereadable(vim.fn.getcwd() .. "/project.godot") == 1 then
-   if vim.loop.os_uname().sysname == 'Windows_NT' then
-      vim.fn.serverstart("localhost:8000")
-      --      echom "Loaded Windows Godot Server Listener"
-   end
+-- Server listening
+local port = os.getenv('GDScript_Port') or 6005
+local os_name = vim.loop.os_uname().sysname
+local cmd
+local pipe
+local server_command
+if os_name == "Linux" then
+   cmd = vim.lsp.rpc.connect('127.0.0.1', port)
+   pipe = '/tmp/godot.pipe'
+   server_command = 'echo serverstart("' .. pipe .. '")'
+elseif os_name == "Darwin" then -- macOS
+   -- Do macOS-specific configuration
+elseif os_name == "Windows" then
+   cmd = { 'ncat', '127.0.0.1', port }
+   pipe = [[\\.\tmp\godot.pipe]]
+   server_command = [[echo serverstart(']] .. pipe .. [[')]]
 end
+
+vim.lsp.start({
+   name = 'Godot',
+   cmd = cmd,
+   root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
+   on_attach = function(client, bufnr)
+      vim.api.nvim_command(server_command)
+   end
+})
