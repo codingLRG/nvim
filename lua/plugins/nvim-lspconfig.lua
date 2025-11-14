@@ -11,7 +11,7 @@ return {
          },
 
          gdtoolkit = {
-            cmd = { 'ncat', 'localhost', os.getenv 'GDScript_Port' or '6005' },
+            --            cmd = { 'ncat', 'localhost', os.getenv 'GDScript_Port' or '6005' },
             filetype = { 'gd', 'gdscript', '' },
             root_makers = { { 'project.godot' }, '.git' },
          },

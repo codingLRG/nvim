@@ -44,4 +44,5 @@ require("lazy").setup({
    require("plugins.conform"),
    require("plugins.nvim-dap"),
    require("plugins.gdscript-extended"),
+   require("plugins.highlight-colors"),
 })
